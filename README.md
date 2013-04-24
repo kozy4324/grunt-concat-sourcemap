@@ -1,8 +1,11 @@
-# grunt-concat-sourcemap
+grunt-concat-sourcemap
+======================
 
 > Concatenate files and generate a source map file.
 
-## Getting Started
+Getting Started
+------------------
+
 This plugin requires Grunt `~0.4.1`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
@@ -17,7 +20,8 @@ One the plugin has been installed, it may be enabled inside your Gruntfile with 
 grunt.loadNpmTasks('grunt-concat-sourcemap');
 ```
 
-## The "concat_sourcemap" task
+The "concat_sourcemap" task
+---------------------------
 
 ### Overview
 In your project's Gruntfile, add a section named `concat_sourcemap` to the data object passed into `grunt.initConfig()`.
@@ -38,52 +42,31 @@ grunt.initConfig({
 ### Options
 
 #### options.separator
+
 Type: `String`
-Default value: `',  '`
+Default value: `grunt.util.linefeed`
 
 A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+
+In this example, it will concatenate the two specified source files(in order), joining files with default separator(`grunt.util.linefeed`) and writing the output to `dest/default_options.js` and `dest/default_options.js.map`.
 
 ```js
 grunt.initConfig({
   concat_sourcemap: {
     options: {},
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'dest/default_options.js': ['src/testing', 'src/123'],
     },
   },
 })
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+Contributing
+------------
 
-```js
-grunt.initConfig({
-  concat_sourcemap: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
-
-## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
-## Release History
-_(Nothing yet)_
