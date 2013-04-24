@@ -10,7 +10,12 @@
 
 module.exports = function(grunt) {
 
+  var SourceMapConsumer = require('source-map').SourceMapConsumer;
+  var SourceMapGenerator = require('source-map').SourceMapGenerator;
   var SourceNode = require('source-map').SourceNode;
+
+  // source map file of input
+  var sourceMaps = [];
 
   grunt.registerMultiTask('concat_sourcemap', 'Concatenate files and generate a sourece map.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
@@ -43,11 +48,19 @@ module.exports = function(grunt) {
         for (j = 0, m = childNodeChanks.length - 1; j < m; j++) {
           childNodeChanks[j] += '\n';
         }
-        childNodeChanks.forEach(function(line, j) {
-          if (/\/\/@\s+sourceMappingURL=/.test(line)) {
-            return;
+        var filepath = null;
+        childNodeChanks.map(function(line) {
+          if (/\/\/@\s+sourceMappingURL=(.+)/.test(line)) {
+            var sourceMapPath = filepaths[i].replace(/[^\/]*$/, RegExp.$1);
+            var sourceMap = JSON.parse(grunt.file.read(sourceMapPath));
+            sourceMaps.push(sourceMap);
+            filepath = sourceMap.file;
+            return line.replace(/@\s+sourceMappingURL=[\w\.]+/, '');
           }
-          sourceNode.add(new SourceNode(j + 1, 0, filepaths[i], line));
+          return line;
+        }).map(function(line, j){
+          // TODO: resolve relative file path.
+          sourceNode.add(new SourceNode(j + 1, 0, filepath || filepaths[i], line));
         });
         sourceNode.add(options.separator);
       }
@@ -64,7 +77,11 @@ module.exports = function(grunt) {
       grunt.file.write(f.dest, code_map.code);
 
       // Write the source map file.
-      grunt.file.write(f.dest + '.map', JSON.stringify(code_map.map.toJSON(), null, '  '));
+      var generator = SourceMapGenerator.fromSourceMap(new SourceMapConsumer(code_map.map.toJSON()));
+      sourceMaps.forEach(function(sourceMap){
+        generator.applySourceMap(new SourceMapConsumer(sourceMap));
+      });
+      grunt.file.write(f.dest + '.map', JSON.stringify(generator.toJSON(), null, '  '));
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');

@@ -44,7 +44,11 @@ module.exports = function(grunt) {
         options: {
         },
         files: {
-          'tmp/default_options.js': ['test/fixtures/file1.js', 'test/fixtures/file2.js', 'test/fixtures/file3.js'],
+          'tmp/default_options.js': [
+            'test/fixtures/file1.js',
+            'test/fixtures/file2.js',
+            'test/fixtures/file3.js'
+          ],
         },
       },
       options_with_sourceRoot: {
@@ -52,9 +56,25 @@ module.exports = function(grunt) {
           sourceRoot: 'tmp',
         },
         files: {
-          'tmp/options_with_sourceRoot.js': ['test/fixtures/file1.js', 'test/fixtures/file2.js', 'test/fixtures/file3.js'],
+          'tmp/options_with_sourceRoot.js': [
+            'test/fixtures/file1.js',
+            'test/fixtures/file2.js',
+            'test/fixtures/file3.js'
+          ],
         },
       },
+      with_coffee: {
+        options: {
+        },
+        files: {
+          'tmp/with_coffee.js': [
+            'test/fixtures/file1.js',
+            'test/fixtures/file2.js',
+            'test/fixtures/file3.js',
+            '<%= coffee.files.dest %>'
+          ],
+        },
+      }
     },
 
     // Unit tests.
