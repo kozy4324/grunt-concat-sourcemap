@@ -28,6 +28,16 @@ module.exports = function(grunt) {
       tests: ['tmp'],
     },
 
+    coffee: {
+      files: {
+        options: {
+          sourceMap: true
+        },
+        src: 'test/fixtures/file4.coffee',
+        dest: 'tmp/compiled.js'
+      }
+    },
+
     // Configuration to be run (and then tested).
     concat_sourcemap: {
       default_options: {
@@ -61,10 +71,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-contrib-coffee');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'concat_sourcemap', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'coffee', 'concat_sourcemap', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
