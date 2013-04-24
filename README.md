@@ -59,7 +59,7 @@ grunt.initConfig({
   concat_sourcemap: {
     options: {},
     files: {
-      'dest/default_options.js': ['src/testing', 'src/123'],
+      'dest/default_options.js': ['src/a.js', 'src/b.js'],
     },
   },
 })
