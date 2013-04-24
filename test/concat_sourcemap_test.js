@@ -12,24 +12,24 @@ exports.concat_sourcemap = {
 
     var actual = grunt.file.read('tmp/default_options.js');
     var expected = grunt.file.read('test/expected/default_options.js');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    test.equal(actual, expected, 'should join files with default separator.');
 
     var actualMap = grunt.file.read('tmp/default_options.js.map');
     var expectedMap = grunt.file.read('test/expected/default_options.js.map');
-    test.equal(actualMap, expectedMap, 'should describe what the default behavior is.');
+    test.equal(actualMap, expectedMap, 'should write a source map file.');
 
     test.done();
   },
-  custom_options: function(test) {
+  options_with_sourceRoot: function(test) {
     test.expect(2);
 
     var actual = grunt.file.read('tmp/options_with_sourceRoot.js');
     var expected = grunt.file.read('test/expected/options_with_sourceRoot.js');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    test.equal(actual, expected, 'should not affect a output joined file.');
 
     var actualMap = grunt.file.read('tmp/options_with_sourceRoot.js.map');
     var expectedMap = grunt.file.read('test/expected/options_with_sourceRoot.js.map');
-    test.equal(actualMap, expectedMap, 'should describe what the custom option(s) behavior is.');
+    test.equal(actualMap, expectedMap, 'should write a source map file including `sourceRoot` property.');
 
     test.done();
   },
