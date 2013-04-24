@@ -37,13 +37,12 @@ module.exports = function(grunt) {
           'tmp/default_options.js': ['test/fixtures/file1.js', 'test/fixtures/file2.js', 'test/fixtures/file3.js'],
         },
       },
-      custom_options: {
+      options_with_sourceRoot: {
         options: {
-          separator: ': ',
           sourceRoot: 'tmp',
         },
         files: {
-          'tmp/custom_options.js': ['test/fixtures/file1.js', 'test/fixtures/file2.js', 'test/fixtures/file3.js'],
+          'tmp/options_with_sourceRoot.js': ['test/fixtures/file1.js', 'test/fixtures/file2.js', 'test/fixtures/file3.js'],
         },
       },
     },

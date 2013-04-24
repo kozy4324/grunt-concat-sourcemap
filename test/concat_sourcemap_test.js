@@ -23,12 +23,12 @@ exports.concat_sourcemap = {
   custom_options: function(test) {
     test.expect(2);
 
-    var actual = grunt.file.read('tmp/custom_options.js');
-    var expected = grunt.file.read('test/expected/custom_options.js');
+    var actual = grunt.file.read('tmp/options_with_sourceRoot.js');
+    var expected = grunt.file.read('test/expected/options_with_sourceRoot.js');
     test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
 
-    var actualMap = grunt.file.read('tmp/custom_options.js.map');
-    var expectedMap = grunt.file.read('test/expected/custom_options.js.map');
+    var actualMap = grunt.file.read('tmp/options_with_sourceRoot.js.map');
+    var expectedMap = grunt.file.read('test/expected/options_with_sourceRoot.js.map');
     test.equal(actualMap, expectedMap, 'should describe what the custom option(s) behavior is.');
 
     test.done();
