@@ -44,7 +44,9 @@ module.exports = function(grunt) {
           childNodeChanks[j] += '\n';
         }
         childNodeChanks.forEach(function(line, j) {
-          if (/\/\/@\s+sourceMappingURL=/.test(line)) return;
+          if (/\/\/@\s+sourceMappingURL=/.test(line)) {
+            return;
+          }
           sourceNode.add(new SourceNode(j + 1, 0, filepaths[i], line));
         });
         sourceNode.add(options.separator);
