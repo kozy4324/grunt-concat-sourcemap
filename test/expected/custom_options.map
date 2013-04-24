@@ -1,0 +1,11 @@
+{
+  "version": 3,
+  "file": "tmp/custom_options",
+  "sources": [
+    "test/fixtures/testing",
+    "test/fixtures/123"
+  ],
+  "names": [],
+  "mappings": "AAAA,O,ECAA,K",
+  "sourceRoot": "tmp"
+}
