@@ -28,13 +28,29 @@ module.exports = function(grunt) {
       tests: ['tmp'],
     },
 
+    copy: {
+      file: {
+        src: 'test/fixtures/file4.coffee',
+        dest: 'tmp/file5.coffee'
+      }
+    },
+
     coffee: {
-      files: {
+      // TEST CASE: source map including `sourceRoot` property.
+      file4: {
         options: {
           sourceMap: true
         },
         src: 'test/fixtures/file4.coffee',
-        dest: 'tmp/compiled.js'
+        dest: 'tmp/compiled4.js'
+      },
+      // TEST CASE: source map including *NO* `sourceRoot` property.
+      file5: {
+        options: {
+          sourceMap: true
+        },
+        src: 'tmp/file5.coffee',
+        dest: 'tmp/compiled5.js'
       }
     },
 
@@ -71,7 +87,8 @@ module.exports = function(grunt) {
             'test/fixtures/file1.js',
             'test/fixtures/file2.js',
             'test/fixtures/file3.js',
-            '<%= coffee.files.dest %>'
+            '<%= coffee.file4.dest %>',
+            '<%= coffee.file5.dest %>'
           ],
         },
       }
@@ -92,10 +109,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'coffee', 'concat_sourcemap', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'copy', 'coffee', 'concat_sourcemap', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

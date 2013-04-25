@@ -33,4 +33,13 @@ exports.concat_sourcemap = {
 
     test.done();
   },
+  with_coffee: function(test) {
+    test.expect(1);
+
+    var actualMap = grunt.file.read('tmp/with_coffee.js.map');
+    var expectedMap = grunt.file.read('test/expected/with_coffee.js.map');
+    test.equal(actualMap, expectedMap, 'should resolve combined source map.');
+
+    test.done();
+  },
 };
