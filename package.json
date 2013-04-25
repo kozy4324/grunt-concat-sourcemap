@@ -2,22 +2,22 @@
   "name": "grunt-concat-sourcemap",
   "description": "Concatenate files and generate a source map file.",
   "version": "0.2.1",
-  "homepage": "https://github.com/k-nakamura/grunt-concat-sourcemap",
+  "homepage": "https://github.com/kozy4324/grunt-concat-sourcemap",
   "author": {
     "name": "Koji NAKAMURA",
     "email": "kozy4324@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/k-nakamura/grunt-concat-sourcemap.git"
+    "url": "git://github.com/kozy4324/grunt-concat-sourcemap.git"
   },
   "bugs": {
-    "url": "https://github.com/k-nakamura/grunt-concat-sourcemap/issues"
+    "url": "https://github.com/kozy4324/grunt-concat-sourcemap/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/k-nakamura/grunt-concat-sourcemap/blob/master/LICENSE-MIT"
+      "url": "https://github.com/kozy4324/grunt-concat-sourcemap/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
