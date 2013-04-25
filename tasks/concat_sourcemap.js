@@ -58,7 +58,7 @@ module.exports = function(grunt) {
             return line.replace(/@\s+sourceMappingURL=[\w\.]+/, '');
           }
           return line;
-        }).map(function(line, j){
+        }).forEach(function(line, j){
           // TODO: resolve relative file path.
           sourceNode.add(new SourceNode(j + 1, 0, filepath || filepaths[i], line));
         });
