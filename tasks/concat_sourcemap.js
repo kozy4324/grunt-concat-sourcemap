@@ -10,6 +10,8 @@
 
 module.exports = function(grunt) {
 
+  var path = require('path');
+
   var SourceMapConsumer = require('source-map').SourceMapConsumer;
   var SourceMapGenerator = require('source-map').SourceMapGenerator;
   var SourceNode = require('source-map').SourceNode;
@@ -48,19 +50,22 @@ module.exports = function(grunt) {
         for (j = 0, m = childNodeChanks.length - 1; j < m; j++) {
           childNodeChanks[j] += '\n';
         }
-        var filepath = null;
         childNodeChanks.map(function(line) {
           if (/\/\/@\s+sourceMappingURL=(.+)/.test(line)) {
             var sourceMapPath = filepaths[i].replace(/[^\/]*$/, RegExp.$1);
             var sourceMap = JSON.parse(grunt.file.read(sourceMapPath));
+            sourceMap.file = filepaths[i];
+            var sourceRoot = path.resolve(path.dirname(filepaths[i]), sourceMap.sourceRoot);
+            sourceMap.sources = sourceMap.sources.map(function(source){
+              return path.relative(process.cwd(), path.join(sourceRoot, source));
+            });
+            delete sourceMap.sourceRoot;
             sourceMaps.push(sourceMap);
-            filepath = sourceMap.file;
             return line.replace(/@\s+sourceMappingURL=[\w\.]+/, '');
           }
           return line;
         }).forEach(function(line, j){
-          // TODO: resolve relative file path.
-          sourceNode.add(new SourceNode(j + 1, 0, filepath || filepaths[i], line));
+          sourceNode.add(new SourceNode(j + 1, 0, filepaths[i], line));
         });
         sourceNode.add(options.separator);
       }
@@ -81,7 +86,9 @@ module.exports = function(grunt) {
       sourceMaps.forEach(function(sourceMap){
         generator.applySourceMap(new SourceMapConsumer(sourceMap));
       });
-      grunt.file.write(f.dest + '.map', JSON.stringify(generator.toJSON(), null, '  '));
+      var newSourceMap = generator.toJSON();
+      newSourceMap.file = path.basename(newSourceMap.file);
+      grunt.file.write(f.dest + '.map', JSON.stringify(newSourceMap, null, '  '));
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');
