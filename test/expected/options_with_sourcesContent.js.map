@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "options_with_sourcesContent.js",
+  "sources": [
+    "test/fixtures/file1.js",
+    "test/fixtures/file2.js",
+    "test/fixtures/file3.js"
+  ],
+  "names": [],
+  "mappings": "AAAA;AACA;AACA;A;ACFA;AACA;A;ACDA;A",
+  "sourcesContent": [
+    "\"file 1 - line 1\";\n\"file 1 - line 2\";\n\"file 1 - line 3\";\n",
+    "\"file 2 - line 1\";\n\"file 2 - line 2\";\n",
+    "\"file 3 - line 1\";\n"
+  ]
+}
