@@ -60,7 +60,7 @@ An optional root for all relative URLs in the source map.
 Type: `Boolean`
 Default value: `false`
 
-An optional flag that tells the source map generator whether or not to include all original sources in the map. `sourcesContent` is nn array of contents of the original source files. This is useful if you don't want to have to upload original src files to the webserver that will be serving the sourcemap.
+An optional flag that tells the source map generator whether or not to include all original sources in the map. `sourcesContent` is an array of contents of the original source files. This is useful if you don't want to have to upload original src files to the webserver that will be serving the sourcemap.
 
 ### Usage Examples
 
@@ -88,14 +88,16 @@ Given sample files as follows:
 `src/a.js`
 
 ```js
-"file a - line 1"
-"file a - line 2"
+"file a - line 1";
+"file a - line 2";
+
 ```
 
 `src/b.js` with contents as follows:
 
 ```js
-"file b - line 1"
+"file b - line 1";
+
 ```
 
 and the following Grunt configuration target for `concat_sourcemap`
