@@ -23,7 +23,8 @@ module.exports = function(grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       separator: grunt.util.linefeed,
-      sourceRoot: ''
+      sourceRoot: '',
+      sourcesContent: false
     });
 
     // Iterate over all src-dest file pairs.
@@ -45,17 +46,18 @@ module.exports = function(grunt) {
       var i, l, j, m;
       for (i = 0, l = filepaths.length; i < l; i++) {
         // Read file source.
-        var src = grunt.file.read(filepaths[i]);
+        var filename = filepaths[i];
+        var src = grunt.file.read(filename);
         var childNodeChunks = src.split('\n');
         for (j = 0, m = childNodeChunks.length - 1; j < m; j++) {
           childNodeChunks[j] += '\n';
         }
         childNodeChunks.map(function(line) {
           if (/\/\/@\s+sourceMappingURL=(.+)/.test(line)) {
-            var sourceMapPath = filepaths[i].replace(/[^\/]*$/, RegExp.$1);
+            var sourceMapPath = filename.replace(/[^\/]*$/, RegExp.$1);
             var sourceMap = JSON.parse(grunt.file.read(sourceMapPath));
-            sourceMap.file = filepaths[i];
-            var sourceRoot = path.resolve(path.dirname(filepaths[i]), sourceMap.sourceRoot);
+            sourceMap.file = filename;
+            var sourceRoot = path.resolve(path.dirname(filename), sourceMap.sourceRoot);
             sourceMap.sources = sourceMap.sources.map(function(source){
               return path.relative(process.cwd(), path.join(sourceRoot, source));
             });
@@ -65,9 +67,12 @@ module.exports = function(grunt) {
           }
           return line;
         }).forEach(function(line, j){
-          sourceNode.add(new SourceNode(j + 1, 0, filepaths[i], line));
+          sourceNode.add(new SourceNode(j + 1, 0, filename, line));
         });
         sourceNode.add(options.separator);
+        if(options.sourcesContent) {
+          sourceNode.setSourceContent(filename, src)
+        }
       }
 
       var mapfilepath = f.dest.split('/').pop() + '.map';
