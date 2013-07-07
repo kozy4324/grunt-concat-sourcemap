@@ -46,7 +46,21 @@ grunt.initConfig({
 Type: `String`
 Default value: `grunt.util.linefeed`
 
-A string value that is used to do something with whatever.
+The value that will be used to separate lines when generating sourceMappings.
+
+#### options.sourceRoot
+
+Type: `String`
+Default value: `''`
+
+An optional root for all relative URLs in the source map.
+
+#### options.sourcesContent
+
+Type: `Boolean`
+Default value: `false`
+
+An optional flag that tells the source map generator whether or not to include all original sources in the map. `sourcesContent` is nn array of contents of the original source files. This is useful if you don't want to have to upload original src files to the webserver that will be serving the sourcemap.
 
 ### Usage Examples
 
@@ -59,10 +73,63 @@ grunt.initConfig({
   concat_sourcemap: {
     options: {},
     files: {
-      'dest/default_options.js': ['src/a.js', 'src/b.js'],
-    },
-  },
+      'dest/default_options.js': ['src/a.js', 'src/b.js']
+    }
+  }
 })
+```
+
+#### Using sourcesContent: true
+
+When using `sourcesContent: true` the resulting sourceMap will include all the contents of each source file inside of an array called `sourcesContent`
+
+Given sample files as follows:
+
+`src/a.js`
+
+```js
+"file a - line 1"
+"file a - line 2"
+```
+
+`src/b.js` with contents as follows:
+
+```js
+"file b - line 1"
+```
+
+and the following Grunt configuration target for `concat_sourcemap`
+
+```js
+grunt.initConfig({
+  concat_sourcemap: {
+    options: {
+      sourcesContent: true
+    },
+    files: {
+      'dest/default_options.js': ['src/a.js', 'src/b.js']
+    }
+  }
+})
+```
+
+You would see a resulting `dest/default_options.js.map` that included `sourcesContent` like so:
+
+```json
+  {
+    "version": 3,
+    "file": "default_options.js.map",
+    "sources": [
+      "src/a.js",
+      "src/b.js"
+    ],
+    "names": [],
+    "mappings": "AAAA;AACA;AACA;A;ACFA;AACA;A;ACDA;A",
+    "sourcesContent": [
+      "\"file a - line 1\";\n\"file a - line 2\";\n",
+      "\"file b - line 1\";\n"
+    ]
+  }
 ```
 
 Contributing
