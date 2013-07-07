@@ -46,11 +46,11 @@ module.exports = function(grunt) {
       for (i = 0, l = filepaths.length; i < l; i++) {
         // Read file source.
         var src = grunt.file.read(filepaths[i]);
-        var childNodeChanks = src.split('\n');
-        for (j = 0, m = childNodeChanks.length - 1; j < m; j++) {
-          childNodeChanks[j] += '\n';
+        var childNodeChunks = src.split('\n');
+        for (j = 0, m = childNodeChunks.length - 1; j < m; j++) {
+          childNodeChunks[j] += '\n';
         }
-        childNodeChanks.map(function(line) {
+        childNodeChunks.map(function(line) {
           if (/\/\/@\s+sourceMappingURL=(.+)/.test(line)) {
             var sourceMapPath = filepaths[i].replace(/[^\/]*$/, RegExp.$1);
             var sourceMap = JSON.parse(grunt.file.read(sourceMapPath));
