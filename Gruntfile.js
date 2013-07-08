@@ -79,6 +79,18 @@ module.exports = function(grunt) {
           ],
         },
       },
+      options_with_sourcesContent: {
+        options: {
+          sourcesContent: true,
+        },
+        files: {
+          'tmp/options_with_sourcesContent.js': [
+            'test/fixtures/file1.js',
+            'test/fixtures/file2.js',
+            'test/fixtures/file3.js'
+          ],
+        },
+      },
       with_coffee: {
         options: {
         },

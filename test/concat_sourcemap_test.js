@@ -33,6 +33,19 @@ exports.concat_sourcemap = {
 
     test.done();
   },
+  options_with_sourcesContent: function(test) {
+    test.expect(2);
+
+    var actual = grunt.file.read('tmp/options_with_sourcesContent.js');
+    var expected = grunt.file.read('test/expected/options_with_sourcesContent.js');
+    test.equal(actual, expected, 'should not affect a output joined file.');
+
+    var actualMap = grunt.file.read('tmp/options_with_sourcesContent.js.map');
+    var expectedMap = grunt.file.read('test/expected/options_with_sourcesContent.js.map');
+    test.equal(actualMap, expectedMap, 'should write a source map file including `sourcesContent` property.');
+
+    test.done();
+  },
   with_coffee: function(test) {
     test.expect(1);
 
