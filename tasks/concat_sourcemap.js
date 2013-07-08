@@ -71,7 +71,7 @@ module.exports = function(grunt) {
         });
         sourceNode.add(options.separator);
         if(options.sourcesContent) {
-          sourceNode.setSourceContent(filename, src)
+          sourceNode.setSourceContent(filename, src);
         }
       }
 
