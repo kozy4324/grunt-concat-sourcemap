@@ -57,7 +57,7 @@ module.exports = function(grunt) {
             var sourceMapPath = filename.replace(/[^\/]*$/, RegExp.$1);
             var sourceMap = JSON.parse(grunt.file.read(sourceMapPath));
             sourceMap.file = filename;
-            var sourceRoot = path.resolve(path.dirname(filename), sourceMap.sourceRoot);
+            var sourceRoot = path.resolve(path.dirname(filename), (sourceMap.sourceRoot || ''));
             sourceMap.sources = sourceMap.sources.map(function(source){
               return path.relative(process.cwd(), path.join(sourceRoot, source));
             });

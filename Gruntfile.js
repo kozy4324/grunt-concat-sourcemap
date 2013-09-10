@@ -103,6 +103,16 @@ module.exports = function(grunt) {
             '<%= coffee.file5.dest %>'
           ],
         },
+      },
+      with_existing_map: {
+        options: {
+        },
+        files: {
+          'tmp/with_existing_map.js': [
+            'test/fixtures/file1.js',
+            'test/fixtures/file6.min.js'
+          ],
+        },
       }
     },
 
