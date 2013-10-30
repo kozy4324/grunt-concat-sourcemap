@@ -113,6 +113,16 @@ module.exports = function(grunt) {
             'test/fixtures/file6.min.js'
           ],
         },
+      },
+      css_files: {
+        options: {
+        },
+        files: {
+          'tmp/css_files.css': [
+            'test/fixtures/css1.css',
+            'test/fixtures/css2.css'
+          ],
+        },
       }
     },
 

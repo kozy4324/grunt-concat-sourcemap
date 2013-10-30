@@ -76,7 +76,11 @@ module.exports = function(grunt) {
       }
 
       var mapfilepath = f.dest.split('/').pop() + '.map';
-      sourceNode.add('//@ sourceMappingURL=' + mapfilepath);
+      if (/\.css$/.test(f.dest)) {
+        sourceNode.add('/*# sourceMappingURL=' + mapfilepath + ' */');
+      } else {
+        sourceNode.add('//@ sourceMappingURL=' + mapfilepath);
+      }
 
       var code_map = sourceNode.toStringWithSourceMap({
         file: f.dest,

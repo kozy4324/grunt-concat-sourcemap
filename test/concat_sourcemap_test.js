@@ -55,4 +55,19 @@ exports.concat_sourcemap = {
 
     test.done();
   },
+  css_files: function(test) {
+    var actualContent, expectedContent, actualMap, expectedMap;
+
+    test.expect(2);
+
+    actualContent = grunt.file.read('tmp/css_files.css');
+    expectedContent = grunt.file.read('test/expected/css_files.css');
+    test.equal(actualContent, expectedContent, 'should output linking line as `/*# sourceMappingURL=<URL> */`.');
+
+    actualMap = grunt.file.read('tmp/css_files.css.map');
+    expectedMap = grunt.file.read('test/expected/css_files.css.map');
+    test.equal(actualMap, expectedMap, 'should write a source map.');
+
+    test.done();
+  },
 };
