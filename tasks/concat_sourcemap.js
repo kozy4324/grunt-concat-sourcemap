@@ -1,6 +1,6 @@
 /*
  * grunt-concat-sourcemap
- * https://github.com/k-nakamura/grunt-concat-sourcemap
+ * https://github.com/kozy4324/grunt-concat-sourcemap
  *
  * Copyright (c) 2013 Koji NAKAMURA
  * Licensed under the MIT license.
