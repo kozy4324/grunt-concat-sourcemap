@@ -32,6 +32,10 @@ module.exports = function(grunt) {
 
       var sourceNode = new SourceNode();
 
+      //Add a reference to the mapfile on top of the concatened file so any errors before reaching the end of the file can be mapped to the correct source.
+      var mapfilepath = f.dest.split('/').pop() + '.map';
+      sourceNode.add('//@ sourceMappingURL=' + mapfilepath+ '\n');
+
       // Warn on and remove invalid source files (if nonull was set).
       var filepaths = f.src.filter(function(filepath) {
         if (!grunt.file.exists(filepath)) {
@@ -74,10 +78,6 @@ module.exports = function(grunt) {
           sourceNode.setSourceContent(filename, src);
         }
       }
-
-      var mapfilepath = f.dest.split('/').pop() + '.map';
-      sourceNode.add('//@ sourceMappingURL=' + mapfilepath);
-
       var code_map = sourceNode.toStringWithSourceMap({
         file: f.dest,
         sourceRoot: options.sourceRoot
