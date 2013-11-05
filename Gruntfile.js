@@ -135,6 +135,17 @@ module.exports = function(grunt) {
             'test/fixtures/css2.css'
           ],
         },
+      },
+      css_files_with_sass_generated: {
+        options: {
+          sourceRoot: '../',
+        },
+        files: {
+          'tmp/css_files_with_sass_generated.css': [
+            'test/fixtures/compiled1.css',
+            'test/fixtures/compiled2.css'
+          ],
+        },
       }
     },
 
