@@ -55,4 +55,34 @@ exports.concat_sourcemap = {
 
     test.done();
   },
+  css_files: function(test) {
+    var actualContent, expectedContent, actualMap, expectedMap;
+
+    test.expect(2);
+
+    actualContent = grunt.file.read('tmp/css_files.css');
+    expectedContent = grunt.file.read('test/expected/css_files.css');
+    test.equal(actualContent, expectedContent, 'should output linking line as `/*# sourceMappingURL=<URL> */`.');
+
+    actualMap = grunt.file.read('tmp/css_files.css.map');
+    expectedMap = grunt.file.read('test/expected/css_files.css.map');
+    test.equal(actualMap, expectedMap, 'should write a source map.');
+
+    test.done();
+  },
+  css_files_with_sass_generated: function(test) {
+    var actualContent, expectedContent, actualMap, expectedMap;
+
+    test.expect(2);
+
+    actualContent = grunt.file.read('tmp/css_files_with_sass_generated.css');
+    expectedContent = grunt.file.read('test/expected/css_files_with_sass_generated.css');
+    test.equal(actualContent, expectedContent, 'should concatenate contents except for linking lines.');
+
+    actualMap = grunt.file.read('tmp/css_files_with_sass_generated.css.map');
+    expectedMap = grunt.file.read('test/expected/css_files_with_sass_generated.css.map');
+    test.equal(actualMap, expectedMap, 'should write a source map resolving combined source map.');
+
+    test.done();
+  },
 };

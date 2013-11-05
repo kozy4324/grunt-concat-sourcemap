@@ -1,0 +1,11 @@
+{
+  "version": 3,
+  "file": "css_files_with_sass_generated.css",
+  "sources": [
+    "test/fixtures/source1.scss",
+    "test/fixtures/source2.scss"
+  ],
+  "names": [],
+  "mappings": "AAEA;AAAK;AAFW;AAAA,K;ACEhB;AAAO;AAFW;AAAA,K",
+  "sourceRoot": "../"
+}

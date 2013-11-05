@@ -54,6 +54,18 @@ module.exports = function(grunt) {
       }
     },
 
+    sass: {
+      dist: {
+        options: {
+          sourcemap: true
+        },
+        files: {
+          'test/fixtures/compiled1.css': 'test/fixtures/source1.scss',
+          'test/fixtures/compiled2.css': 'test/fixtures/source2.scss'
+        }
+      }
+    },
+
     // Configuration to be run (and then tested).
     concat_sourcemap: {
       default_options: {
@@ -113,6 +125,27 @@ module.exports = function(grunt) {
             'test/fixtures/file6.min.js'
           ],
         },
+      },
+      css_files: {
+        options: {
+        },
+        files: {
+          'tmp/css_files.css': [
+            'test/fixtures/css1.css',
+            'test/fixtures/css2.css'
+          ],
+        },
+      },
+      css_files_with_sass_generated: {
+        options: {
+          sourceRoot: '../',
+        },
+        files: {
+          'tmp/css_files_with_sass_generated.css': [
+            'test/fixtures/compiled1.css',
+            'test/fixtures/compiled2.css'
+          ],
+        },
       }
     },
 
@@ -132,6 +165,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
