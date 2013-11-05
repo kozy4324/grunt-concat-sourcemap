@@ -19,7 +19,7 @@ module.exports = function(grunt) {
   // source map file of input
   var sourceMaps = [];
 
-  grunt.registerMultiTask('concat_sourcemap', 'Concatenate files and generate a sourece map.', function() {
+  grunt.registerMultiTask('concat_sourcemap', 'Concatenate files and generate a source map.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       separator: grunt.util.linefeed,
