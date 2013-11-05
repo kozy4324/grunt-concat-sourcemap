@@ -146,6 +146,22 @@ module.exports = function(grunt) {
             'test/fixtures/compiled2.css'
           ],
         },
+      },
+      file_with_linking: {
+        files: {
+          'tmp/file_with_linking.js': [
+            'test/fixtures/file_with_linking1.js',
+            'test/fixtures/file_with_linking2.js'
+          ],
+        },
+      },
+      file_with_old_linking: {
+        files: {
+          'tmp/file_with_old_linking.js': [
+            'test/fixtures/file_with_old_linking1.js',
+            'test/fixtures/file_with_old_linking2.js'
+          ],
+        },
       }
     },
 

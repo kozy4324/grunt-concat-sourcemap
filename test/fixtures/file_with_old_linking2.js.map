@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "file": "file_with_old_linking2.js",
+  "sources": [
+    "file4.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,CAAA,eAAA;CAAA,CACA,eADA;CAAA,CAEA,eAFA;CAAA,CAGA,eAHA;CAAA,CAIA,eAJA;CAAA;CAAA"
+}
