@@ -7,4 +7,4 @@
 
 "file 3 - line 1";
 
-//@ sourceMappingURL=default_options.js.map
+//# sourceMappingURL=default_options.js.map
