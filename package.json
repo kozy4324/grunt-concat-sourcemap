@@ -1,7 +1,7 @@
 {
   "name": "grunt-concat-sourcemap",
   "description": "Concatenate files and generate a source map file.",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "homepage": "https://github.com/kozy4324/grunt-concat-sourcemap",
   "author": {
     "name": "Koji NAKAMURA",
