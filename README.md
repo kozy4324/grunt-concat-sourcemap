@@ -1,4 +1,4 @@
-grunt-concat-sourcemap ![Travis status](https://api.travis-ci.org/kozy4324/grunt-concat-sourcemap.png)
+grunt-concat-sourcemap [![Build Status](https://travis-ci.org/kozy4324/grunt-concat-sourcemap.png?branch=master)](https://travis-ci.org/kozy4324/grunt-concat-sourcemap)
 ======================
 
 > Concatenate files and generate a source map file.
