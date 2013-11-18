@@ -85,4 +85,34 @@ exports.concat_sourcemap = {
 
     test.done();
   },
+  file_with_linking: function(test) {
+    var actualContent, expectedContent, actualMap, expectedMap;
+
+    test.expect(2);
+
+    actualContent = grunt.file.read('tmp/file_with_linking.js');
+    expectedContent = grunt.file.read('test/expected/file_with_linking.js');
+    test.equal(actualContent, expectedContent, 'should concatenate contents and resolve the linking.');
+
+    actualMap = grunt.file.read('tmp/file_with_linking.js.map');
+    expectedMap = grunt.file.read('test/expected/file_with_linking.js.map');
+    test.equal(actualMap, expectedMap, 'should concatenate contents and resolve the linking.');
+
+    test.done();
+  },
+  file_with_old_linking: function(test) {
+    var actualContent, expectedContent, actualMap, expectedMap;
+
+    test.expect(2);
+
+    actualContent = grunt.file.read('tmp/file_with_old_linking.js');
+    expectedContent = grunt.file.read('test/expected/file_with_old_linking.js');
+    test.equal(actualContent, expectedContent, 'should concatenate contents and resolve the old linking.');
+
+    actualMap = grunt.file.read('tmp/file_with_old_linking.js.map');
+    expectedMap = grunt.file.read('test/expected/file_with_old_linking.js.map');
+    test.equal(actualMap, expectedMap, 'should concatenate contents and resolve the old linking.');
+
+    test.done();
+  },
 };

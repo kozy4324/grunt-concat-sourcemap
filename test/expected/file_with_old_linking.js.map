@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "file_with_old_linking.js",
+  "sources": [
+    "test/fixtures/file1.js",
+    "test/fixtures/file_with_old_linking1.js",
+    "test/fixtures/file2.js",
+    "test/fixtures/file3.js",
+    "test/fixtures/file4.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;AACA;AACA;ACCA;ACHA;AACA;ADKA;AENA;AFQA;AACA;A;AGTA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;A"
+}

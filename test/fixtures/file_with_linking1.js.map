@@ -1,0 +1,11 @@
+{
+  "version": 3,
+  "file": "file_with_linking1.js",
+  "sources": [
+    "file1.js",
+    "file2.js",
+    "file3.js"
+  ],
+  "names": [],
+  "mappings": "AAAA;AACA;AACA;A;ACFA;AACA;A;ACDA;A"
+}
