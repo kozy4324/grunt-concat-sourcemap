@@ -28,12 +28,12 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.1.1",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-nodeunit": "~0.1.2",
-    "grunt": "~0.4.1",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-copy": "~0.4.1"
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-nodeunit": "~0.3.0",
+    "grunt": "~0.4.2",
+    "grunt-contrib-coffee": "~0.9.0",
+    "grunt-contrib-copy": "~0.5.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.1"
@@ -44,6 +44,6 @@
     "sourcemap"
   ],
   "dependencies": {
-    "source-map": "~0.1.22"
+    "source-map": "~0.1.31"
   }
 }
