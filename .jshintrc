@@ -10,6 +10,5 @@
   "boss": true,
   "eqnull": true,
   "loopfunc": true,
-  "node": true,
-  "es5": true
+  "node": true
 }
