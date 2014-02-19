@@ -34,8 +34,8 @@ grunt.initConfig({
     },
     your_target: {
       // Target-specific file lists and/or options go here.
-    },
-  },
+    }
+  }
 })
 ```
 
@@ -72,8 +72,10 @@ In this example, it will concatenate the two specified source files(in order), j
 grunt.initConfig({
   concat_sourcemap: {
     options: {},
-    files: {
-      'dest/default_options.js': ['src/a.js', 'src/b.js']
+    target: {
+      files: {
+        'dest/default_options.js': ['src/a.js', 'src/b.js']
+      }
     }
   }
 })
@@ -108,8 +110,10 @@ grunt.initConfig({
     options: {
       sourcesContent: true
     },
-    files: {
-      'dest/default_options.js': ['src/a.js', 'src/b.js']
+    target:
+      files: {
+        'dest/default_options.js': ['src/a.js', 'src/b.js']
+      }
     }
   }
 })
