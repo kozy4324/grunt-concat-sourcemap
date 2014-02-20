@@ -110,7 +110,7 @@ grunt.initConfig({
     options: {
       sourcesContent: true
     },
-    target:
+    target: {
       files: {
         'dest/default_options.js': ['src/a.js', 'src/b.js']
       }
