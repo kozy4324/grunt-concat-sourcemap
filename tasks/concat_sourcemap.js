@@ -72,7 +72,7 @@ module.exports = function(grunt) {
             });
             delete sourceMap.sourceRoot;
             sourceMaps.push(sourceMap);
-            return line.replace(/[@#]\s+sourceMappingURL=[\w\.]+/, '');
+            return line.replace(/[@#]\s+sourceMappingURL=[\w\.\-]+/, '');
           }
           return line;
         }).forEach(function(line, j){
