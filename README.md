@@ -62,6 +62,14 @@ Default value: `false`
 
 An optional flag that tells the source map generator whether or not to include all original sources in the map. `sourcesContent` is an array of contents of the original source files. This is useful if you don't want to have to upload original src files to the webserver that will be serving the sourcemap.
 
+#### options.process
+
+Type: `Function`
+Default value: `undefined`
+
+* `undefined` - Do not apply any processing to the source files
+* `function(src, filepath)` - Process source files using the given function, called once for each file. The returned value will be used as source code.
+
 ### Usage Examples
 
 #### Default Options
@@ -136,6 +144,25 @@ You would see a resulting `dest/default_options.js.map` that included `sourcesCo
       "\"file b - line 1\";\n"
     ]
   }
+```
+
+#### Using `process`
+
+```js
+grunt.initConfig({
+  concat_sourcemap: {
+    options: {
+      process: function(src, filepath) {
+        return '(function(){' + src + '})();';
+      }
+    },
+    target: {
+      files: {
+        'dest/closureWrapped.js': ['src/a.js', 'src/b.js']
+      }
+    }
+  }
+})
 ```
 
 Merging source map files
