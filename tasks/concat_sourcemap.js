@@ -24,7 +24,8 @@ module.exports = function(grunt) {
     var options = this.options({
       separator: grunt.util.linefeed,
       sourceRoot: '',
-      sourcesContent: false
+      sourcesContent: false,
+      process: undefined
     });
 
     // Iterate over all src-dest file pairs.
@@ -48,6 +49,11 @@ module.exports = function(grunt) {
         // Read file source.
         var filename = filepaths[i];
         var src = grunt.file.read(filename);
+
+        if(typeof options.process === 'function') {
+          src = options.process(src, filename);
+        }
+
         var childNodeChunks = src.split('\n');
         for (j = 0, m = childNodeChunks.length - 1; j < m; j++) {
           childNodeChunks[j] += '\n';
