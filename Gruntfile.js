@@ -103,6 +103,20 @@ module.exports = function(grunt) {
           ],
         },
       },
+      options_with_process: {
+        options: {
+          process: function(src) {
+            return '(function(){' + src + '})();';
+          }
+        },
+        files: {
+          'tmp/options_with_process.js': [
+            'test/fixtures/file1.js',
+            'test/fixtures/file2.js',
+            'test/fixtures/file3.js'
+          ],
+        },
+      },
       with_coffee: {
         options: {
         },
