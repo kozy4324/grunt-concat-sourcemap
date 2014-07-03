@@ -46,6 +46,15 @@ exports.concat_sourcemap = {
 
     test.done();
   },
+  options_with_process: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/options_with_process.js');
+    var expected = grunt.file.read('test/expected/options_with_process.js');
+    test.equal(actual, expected, 'should use process function to modify concatenated file');
+
+    test.done();
+  },
   with_coffee: function(test) {
     test.expect(1);
 
