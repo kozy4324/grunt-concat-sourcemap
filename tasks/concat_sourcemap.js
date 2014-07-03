@@ -72,7 +72,7 @@ module.exports = function(grunt) {
             });
             delete sourceMap.sourceRoot;
             sourceMaps.push(sourceMap);
-            return line.replace(/[@#]\s+sourceMappingURL=[\w\.]+/, '');
+            return line.replace(/[@#]\s+sourceMappingURL=[\w\.\-]+/, '');
           }
           return line;
         }).forEach(function(line, j){
@@ -104,6 +104,15 @@ module.exports = function(grunt) {
       sourceMaps.forEach(function(sourceMap){
         generator.applySourceMap(new SourceMapConsumer(sourceMap));
       });
+
+      if(options.sourcesContent) {
+        sourceMaps.forEach(function(sourceMap){
+          sourceMap.sources.forEach(function(source){
+            generator.setSourceContent(source, grunt.file.read(source));
+          });
+        });
+      }
+
       var newSourceMap = generator.toJSON();
       newSourceMap.file = path.basename(newSourceMap.file);
       grunt.file.write(f.dest + '.map', JSON.stringify(newSourceMap, null, '  '));

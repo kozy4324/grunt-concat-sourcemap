@@ -44,6 +44,6 @@
     "sourcemap"
   ],
   "dependencies": {
-    "source-map": "~0.1.31"
+    "source-map": "0.1.31"
   }
 }
