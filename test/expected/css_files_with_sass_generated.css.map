@@ -6,6 +6,6 @@
     "test/fixtures/source2.scss"
   ],
   "names": [],
-  "mappings": "AAEA;AAAK;AAFW;AAAA,K;ACEhB;AAAO;AAFW;AAAA,K",
+  "mappings": "AAEA;AAAK;AAFW;A;ACEhB;AAAO;AAFW;A",
   "sourceRoot": "../"
 }

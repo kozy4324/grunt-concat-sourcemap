@@ -7,7 +7,6 @@
 
 "file 3 - line 1";
 
-//
 
 (function() {
   "file 4 - line 1";
@@ -20,7 +19,6 @@
 }).call(this);
 
 /*
-//
 */
 
 //# sourceMappingURL=file_with_old_linking.js.map
