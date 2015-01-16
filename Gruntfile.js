@@ -70,7 +70,6 @@ module.exports = function(grunt) {
     concat_sourcemap: {
       default_options: {
         options: {
-          separator: '\n',
         },
         files: {
           'tmp/default_options.js': [
@@ -82,7 +81,6 @@ module.exports = function(grunt) {
       },
       options_with_sourceRoot: {
         options: {
-          separator: '\n',
           sourceRoot: 'tmp',
         },
         files: {
@@ -95,7 +93,6 @@ module.exports = function(grunt) {
       },
       options_with_sourcesContent: {
         options: {
-          separator: '\n',
           sourcesContent: true,
         },
         files: {
@@ -108,7 +105,6 @@ module.exports = function(grunt) {
       },
       options_with_process: {
         options: {
-          separator: '\n',
           process: function(src) {
             return '(function(){' + src + '})();';
           }
@@ -123,7 +119,6 @@ module.exports = function(grunt) {
       },
       with_coffee: {
         options: {
-          separator: '\n',
         },
         files: {
           'tmp/with_coffee.js': [
@@ -137,7 +132,6 @@ module.exports = function(grunt) {
       },
       with_existing_map: {
         options: {
-          separator: '\n',
         },
         files: {
           'tmp/with_existing_map.js': [
@@ -148,7 +142,6 @@ module.exports = function(grunt) {
       },
       css_files: {
         options: {
-          separator: '\n',
         },
         files: {
           'tmp/css_files.css': [
@@ -159,7 +152,6 @@ module.exports = function(grunt) {
       },
       css_files_with_sass_generated: {
         options: {
-          separator: '\n',
           sourceRoot: '../',
         },
         files: {
@@ -170,9 +162,6 @@ module.exports = function(grunt) {
         },
       },
       file_with_linking: {
-        options: {
-          separator: '\n',
-        },
         files: {
           'tmp/file_with_linking.js': [
             'test/fixtures/file_with_linking1.js',
@@ -181,9 +170,6 @@ module.exports = function(grunt) {
         },
       },
       file_with_old_linking: {
-        options: {
-          separator: '\n',
-        },
         files: {
           'tmp/file_with_old_linking.js': [
             'test/fixtures/file_with_old_linking1.js',
