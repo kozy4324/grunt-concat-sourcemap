@@ -14,9 +14,9 @@ exports.concat_sourcemap = {
     var expected = grunt.file.read('test/expected/default_options.js');
     test.equal(actual, expected, 'should join files with default separator.');
 
-    var actualMap = grunt.file.read('tmp/default_options.js.map');
-    var expectedMap = grunt.file.read('test/expected/default_options.js.map');
-    test.equal(actualMap, expectedMap, 'should write a source map file.');
+    var actualMap = grunt.file.readJSON('tmp/default_options.js.map');
+    var expectedMap = grunt.file.readJSON('test/expected/default_options.js.map');
+    test.deepEqual(actualMap, expectedMap, 'should write a source map file.');
 
     test.done();
   },
@@ -27,9 +27,9 @@ exports.concat_sourcemap = {
     var expected = grunt.file.read('test/expected/options_with_sourceRoot.js');
     test.equal(actual, expected, 'should not affect a output joined file.');
 
-    var actualMap = grunt.file.read('tmp/options_with_sourceRoot.js.map');
-    var expectedMap = grunt.file.read('test/expected/options_with_sourceRoot.js.map');
-    test.equal(actualMap, expectedMap, 'should write a source map file including `sourceRoot` property.');
+    var actualMap = grunt.file.readJSON('tmp/options_with_sourceRoot.js.map');
+    var expectedMap = grunt.file.readJSON('test/expected/options_with_sourceRoot.js.map');
+    test.deepEqual(actualMap, expectedMap, 'should write a source map file including `sourceRoot` property.');
 
     test.done();
   },
@@ -40,9 +40,9 @@ exports.concat_sourcemap = {
     var expected = grunt.file.read('test/expected/options_with_sourcesContent.js');
     test.equal(actual, expected, 'should not affect a output joined file.');
 
-    var actualMap = grunt.file.read('tmp/options_with_sourcesContent.js.map');
-    var expectedMap = grunt.file.read('test/expected/options_with_sourcesContent.js.map');
-    test.equal(actualMap, expectedMap, 'should write a source map file including `sourcesContent` property.');
+    var actualMap = grunt.file.readJSON('tmp/options_with_sourcesContent.js.map');
+    var expectedMap = grunt.file.readJSON('test/expected/options_with_sourcesContent.js.map');
+    test.deepEqual(actualMap, expectedMap, 'should write a source map file including `sourcesContent` property.');
 
     test.done();
   },
@@ -58,9 +58,9 @@ exports.concat_sourcemap = {
   with_coffee: function(test) {
     test.expect(1);
 
-    var actualMap = grunt.file.read('tmp/with_coffee.js.map');
-    var expectedMap = grunt.file.read('test/expected/with_coffee.js.map');
-    test.equal(actualMap, expectedMap, 'should resolve combined source map.');
+    var actualMap = grunt.file.readJSON('tmp/with_coffee.js.map');
+    var expectedMap = grunt.file.readJSON('test/expected/with_coffee.js.map');
+    test.deepEqual(actualMap, expectedMap, 'should resolve combined source map.');
 
     test.done();
   },
@@ -73,9 +73,9 @@ exports.concat_sourcemap = {
     expectedContent = grunt.file.read('test/expected/css_files.css');
     test.equal(actualContent, expectedContent, 'should output linking line as `/*# sourceMappingURL=<URL> */`.');
 
-    actualMap = grunt.file.read('tmp/css_files.css.map');
-    expectedMap = grunt.file.read('test/expected/css_files.css.map');
-    test.equal(actualMap, expectedMap, 'should write a source map.');
+    actualMap = grunt.file.readJSON('tmp/css_files.css.map');
+    expectedMap = grunt.file.readJSON('test/expected/css_files.css.map');
+    test.deepEqual(actualMap, expectedMap, 'should write a source map.');
 
     test.done();
   },
@@ -88,9 +88,9 @@ exports.concat_sourcemap = {
     expectedContent = grunt.file.read('test/expected/css_files_with_sass_generated.css');
     test.equal(actualContent, expectedContent, 'should concatenate contents except for linking lines.');
 
-    actualMap = grunt.file.read('tmp/css_files_with_sass_generated.css.map');
-    expectedMap = grunt.file.read('test/expected/css_files_with_sass_generated.css.map');
-    test.equal(actualMap, expectedMap, 'should write a source map resolving combined source map.');
+    actualMap = grunt.file.readJSON('tmp/css_files_with_sass_generated.css.map');
+    expectedMap = grunt.file.readJSON('test/expected/css_files_with_sass_generated.css.map');
+    test.deepEqual(actualMap, expectedMap, 'should write a source map resolving combined source map.');
 
     test.done();
   },
@@ -103,9 +103,9 @@ exports.concat_sourcemap = {
     expectedContent = grunt.file.read('test/expected/file_with_linking.js');
     test.equal(actualContent, expectedContent, 'should concatenate contents and resolve the linking.');
 
-    actualMap = grunt.file.read('tmp/file_with_linking.js.map');
-    expectedMap = grunt.file.read('test/expected/file_with_linking.js.map');
-    test.equal(actualMap, expectedMap, 'should concatenate contents and resolve the linking.');
+    actualMap = grunt.file.readJSON('tmp/file_with_linking.js.map');
+    expectedMap = grunt.file.readJSON('test/expected/file_with_linking.js.map');
+    test.deepEqual(actualMap, expectedMap, 'should concatenate contents and resolve the linking.');
 
     test.done();
   },
@@ -118,9 +118,9 @@ exports.concat_sourcemap = {
     expectedContent = grunt.file.read('test/expected/file_with_old_linking.js');
     test.equal(actualContent, expectedContent, 'should concatenate contents and resolve the old linking.');
 
-    actualMap = grunt.file.read('tmp/file_with_old_linking.js.map');
-    expectedMap = grunt.file.read('test/expected/file_with_old_linking.js.map');
-    test.equal(actualMap, expectedMap, 'should concatenate contents and resolve the old linking.');
+    actualMap = grunt.file.readJSON('tmp/file_with_old_linking.js.map');
+    expectedMap = grunt.file.readJSON('test/expected/file_with_old_linking.js.map');
+    test.deepEqual(actualMap, expectedMap, 'should concatenate contents and resolve the old linking.');
 
     test.done();
   },
