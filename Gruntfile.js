@@ -184,6 +184,34 @@ module.exports = function(grunt) {
       tests: ['test/*_test.js'],
     },
 
+    // Checking manually with connect.
+    connect: {
+      server: {
+        options: {
+          keepalive: true,
+          open: {
+            target: 'http://0.0.0.0:8000/tmp/index.html',
+          },
+          middleware: function (connect, options, middlewares) {
+            middlewares.unshift(function(req, res, next) {
+              if (req.url === '/tmp/index.html') {
+                res.setHeader('Content-Type', 'text/html');
+                res.end(grunt.file.expand('tmp/**/*.{js,css}').map(function(path) {
+                  if (/.*\.js/.test(path)) {
+                    return '<script src="../' + path + '"></script>';
+                  } else {
+                    return '<link rel="stylesheet" type="text/css" href="../' + path + '">';
+                  }
+                }).join(''));
+              } else {
+                next();
+              }
+            });
+            return middlewares;
+          }
+        },
+      },
+    },
   });
 
   // Actually load this plugin's task(s).
@@ -196,6 +224,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
