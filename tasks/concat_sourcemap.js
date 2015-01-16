@@ -58,7 +58,7 @@ module.exports = function(grunt) {
         for (j = 0, m = childNodeChunks.length - 1; j < m; j++) {
           childNodeChunks[j] += '\n';
         }
-        childNodeChunks.map(function(line) {
+        childNodeChunks.filter(function(line) {
           if (/\/\/[@#]\s+sourceMappingURL=(.+)/.test(line) || /\/\*#\s+sourceMappingURL=([^\s]+)\s+\*\//.test(line)) {
             var sourceMapPath = filename.replace(/[^\/]*$/, RegExp.$1);
             var sourceMap = JSON.parse(grunt.file.read(sourceMapPath));
@@ -78,9 +78,9 @@ module.exports = function(grunt) {
             });
             delete sourceMap.sourceRoot;
             sourceMaps.push(sourceMap);
-            return line.replace(/[@#]\s+sourceMappingURL=[\w\.\-]+/, '');
+            return false;
           }
-          return line;
+          return true;
         }).forEach(function(line, j){
           sourceNode.add(new SourceNode(j + 1, 0, filename, line));
         });
