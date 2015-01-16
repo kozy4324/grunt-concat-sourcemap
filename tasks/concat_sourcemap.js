@@ -11,6 +11,7 @@
 module.exports = function(grunt) {
 
   var path = require('path');
+  var url = require('url');
 
   var SourceMapConsumer = require('source-map').SourceMapConsumer;
   var SourceMapGenerator = require('source-map').SourceMapGenerator;
@@ -74,7 +75,7 @@ module.exports = function(grunt) {
             sourceMap.file = filename;
             var sourceRoot = path.resolve(path.dirname(filename), (sourceMap.sourceRoot || ''));
             sourceMap.sources = sourceMap.sources.map(function(source){
-              return path.relative(process.cwd(), path.join(sourceRoot, source));
+              return url.resolve(path.relative(process.cwd(), path.join(sourceRoot, source)), '');
             });
             delete sourceMap.sourceRoot;
             sourceMaps.push(sourceMap);
