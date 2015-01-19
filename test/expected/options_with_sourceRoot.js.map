@@ -1,12 +1,12 @@
 {
   "version": 3,
-  "file": "options_with_sourceRoot.js",
   "sources": [
     "test/fixtures/file1.js",
     "test/fixtures/file2.js",
     "test/fixtures/file3.js"
   ],
   "names": [],
-  "mappings": "AAAA;AACA;AACA;A;ACFA;AACA;A;ACDA;A",
-  "sourceRoot": "tmp"
+  "mappings": "AAAA;AACA;AACA;;ACFA;AACA;;ACDA",
+  "file": "options_with_sourceRoot.js",
+  "sourceRoot": "/"
 }

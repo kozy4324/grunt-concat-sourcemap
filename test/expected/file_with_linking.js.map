@@ -1,13 +1,13 @@
 {
   "version": 3,
-  "file": "file_with_linking.js",
   "sources": [
-    "test/fixtures/file1.js",
-    "test/fixtures/file_with_linking1.js",
-    "test/fixtures/file2.js",
-    "test/fixtures/file3.js",
-    "test/fixtures/file4.coffee"
+    "../test/fixtures/file1.js",
+    "../test/fixtures/file2.js",
+    "../test/fixtures/file3.js",
+    "../test/fixtures/file4.coffee"
   ],
   "names": [],
-  "mappings": "AAAA;AACA;AACA;ACCA;ACHA;AACA;ADKA;AENA;AFQA;A;AGRA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;A"
+  "mappings": "AAAA;AACA;AACA;;ACFA;AACA;;ACDA;;;;ACAA;CAAA;CAAA,CACA,eADA;CAAA,CAEA,eAFA;CAAA,CAGA,eAHA;CAAA,CAIA,eAJA;AAAA;AAAA",
+  "file": "file_with_linking.js",
+  "sourceRoot": ""
 }

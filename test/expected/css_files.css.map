@@ -1,10 +1,11 @@
 {
   "version": 3,
-  "file": "css_files.css",
   "sources": [
-    "test/fixtures/css1.css",
-    "test/fixtures/css2.css"
+    "../test/fixtures/css1.css",
+    "../test/fixtures/css2.css"
   ],
   "names": [],
-  "mappings": "AAAA;A;ACAA;A"
+  "mappings": "AAAA;;ACAA",
+  "file": "css_files.css",
+  "sourceRoot": ""
 }

@@ -1,13 +1,14 @@
 {
   "version": 3,
-  "file": "with_coffee.js",
   "sources": [
-    "test/fixtures/file1.js",
-    "test/fixtures/file2.js",
-    "test/fixtures/file3.js",
-    "test/fixtures/file4.coffee",
-    "tmp/file5.coffee"
+    "../test/fixtures/file1.js",
+    "../test/fixtures/file2.js",
+    "../test/fixtures/file3.js",
+    "../test/fixtures/file4.coffee",
+    "file5.coffee"
   ],
   "names": [],
-  "mappings": "AAAA;AACA;AACA;A;ACFA;AACA;A;ACDA;A;ACAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;A;ACAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;A"
+  "mappings": "AAAA;AACA;AACA;;ACFA;AACA;;ACDA;;ACAA;AAAA;AAAA,EACA,iBADA;AAAA,EAEA,iBAFA;AAAA,EAGA,iBAHA;AAAA,EAIA,iBAJA;AAAA;AAAA;;;;;ACAA;AAAA;AAAA,EACA,iBADA;AAAA,EAEA,iBAFA;AAAA,EAGA,iBAHA;AAAA,EAIA,iBAJA;AAAA;AAAA",
+  "file": "with_coffee.js",
+  "sourceRoot": ""
 }
