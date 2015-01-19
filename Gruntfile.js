@@ -81,7 +81,7 @@ module.exports = function(grunt) {
       },
       options_with_sourceRoot: {
         options: {
-          sourceRoot: 'tmp',
+          sourceRoot: '/',
         },
         files: {
           'tmp/options_with_sourceRoot.js': [
@@ -152,7 +152,7 @@ module.exports = function(grunt) {
       },
       css_files_with_sass_generated: {
         options: {
-          sourceRoot: '../',
+          sourceRoot: '/',
         },
         files: {
           'tmp/css_files_with_sass_generated.css': [

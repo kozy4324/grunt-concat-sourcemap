@@ -1,11 +1,11 @@
 {
   "version": 3,
-  "file": "css_files_with_sass_generated.css",
   "sources": [
     "test/fixtures/source1.scss",
     "test/fixtures/source2.scss"
   ],
   "names": [],
-  "mappings": "AAEA;AAAK;AAFW;A;ACEhB;AAAO;AAFW;A",
-  "sourceRoot": "../"
+  "mappings": "AAEA,IAAK;EAAE,KAAK,EAFA,GAAI;;;ACEhB,MAAO;EAAE,KAAK,EAFA,IAAI",
+  "file": "css_files_with_sass_generated.css",
+  "sourceRoot": "/"
 }
