@@ -55,7 +55,7 @@ module.exports = function(grunt) {
           src = options.process(src, filename);
         }
 
-        if (/\/\/[@#]\s+sourceMappingURL=(.+)/.test(src) || /\/\*#\s+sourceMappingURL=([^\s]+)\s+\*\//.test(src)) {
+        if ((/\/\/[@#]\s+sourceMappingURL=(.+)/.test(src) || /\/\*#\s+sourceMappingURL=([^\s]+)\s+\*\//.test(src)) && !/sourceMappingURL=data:/.test(src)) {
           var sourceMappingURL = RegExp.$1;
           var sourceMapPath = path.resolve(path.dirname(filename), sourceMappingURL);
           var sourceMap = JSON.parse(grunt.file.read(sourceMapPath));
