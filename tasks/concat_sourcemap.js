@@ -111,8 +111,11 @@ module.exports = function(grunt) {
 
       if(options.sourcesContent) {
         sourceMaps.forEach(function(sourceMap){
-          sourceMap[0].sources.forEach(function(source){
-            generator.setSourceContent(source, grunt.file.read(path.resolve(destDir, source)));
+          var sourceMapConsumer = sourceMap[0];
+          var sourcesContent = sourceMapConsumer.sourcesContent;
+          sourceMapConsumer.sources.forEach(function(source, index){
+            var content = sourcesContent && sourcesContent[index] || grunt.file.read(path.resolve(destDir, source));
+            generator.setSourceContent(source, content);
           });
         });
       }
