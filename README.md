@@ -1,3 +1,6 @@
+**Deprecated: grunt-contrib-concat plugin has features about Source Maps. This plugin is no more maintained. Please use grunt-contrib-concat plugin.**
+--
+
 grunt-concat-sourcemap [![Build Status](https://travis-ci.org/kozy4324/grunt-concat-sourcemap.png?branch=master)](https://travis-ci.org/kozy4324/grunt-concat-sourcemap)
 ======================
 
